@@ -40,9 +40,9 @@ export default function WhyUs() {
             {/* Small overlay image */}
             <div className="absolute bottom-0 right-0 w-44 h-36 rounded-2xl overflow-hidden border border-[#4FC3F7]/25 shadow-[0_0_30px_rgba(79,195,247,0.15)]">
               <img
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+                src="https://res.cloudinary.com/dynbpb9u0/image/upload/v1780297531/Bitdefender_B2__Your_Cyber_Safety_Net____In_a_world_full_of_digital_threats_protection_isn_t_optional_it_s_essential____Bitdefender_d_rw3l6r.jpg"
                 alt="Access control panel"
-                className="w-full h-full object-cover grayscale"
+                className="w-full h-full object-cover "
               />
               <div className="absolute inset-0 bg-[#00E5FF]/5" />
             </div>

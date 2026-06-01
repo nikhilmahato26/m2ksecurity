@@ -49,7 +49,7 @@ export default function Pricing() {
       : `₹${(price / 1000).toFixed(0)}K`
 
   return (
-    <section id="contact" ref={ref} className="py-28 overflow-hidden" style={{ background: 'linear-gradient(180deg,#EEF3FF 0%,#F8FAFF 100%)' }}>
+    <section ref={ref} className="py-28 overflow-hidden" style={{ background: 'linear-gradient(180deg,#EEF3FF 0%,#F8FAFF 100%)' }}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div

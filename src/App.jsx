@@ -3,11 +3,11 @@ import Hero from './components/sections/Hero'
 import About from './components/sections/About'
 import Services from './components/sections/Services'
 import Clients from './components/sections/Clients'
-import Projects from './components/sections/Projects'
+import Process from './components/sections/Process'
 import WhyUs from './components/sections/WhyUs'
-import Pricing from './components/sections/Pricing'
+import Credentials from './components/sections/Credentials'
 import Testimonials from './components/sections/Testimonials'
-import Blog from './components/sections/Blog'
+import Contact from './components/sections/Contact'
 import Footer from './components/sections/Footer'
 
 export default function App() {
@@ -18,11 +18,11 @@ export default function App() {
       <About />
       <Services />
       <Clients />
-      <Projects />
+      <Process />
       <WhyUs />
-      <Pricing />
+      <Credentials />
       <Testimonials />
-      <Blog />
+      <Contact />
       <Footer />
     </div>
   )

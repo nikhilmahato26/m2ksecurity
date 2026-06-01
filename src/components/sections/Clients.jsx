@@ -86,7 +86,7 @@ export default function Clients() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
   return (
-    <section ref={ref} className="py-20 overflow-hidden" style={{ background: '#F8FAFF' }}>
+    <section id="clients" ref={ref} className="py-20 overflow-hidden" style={{ background: '#F8FAFF' }}>
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
