@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react'
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import {
   Fingerprint, Flame, LayoutDashboard, Droplets, BellRing,
-  Camera, Car, Shield, UserCheck, Zap, Check, ChevronRight,
+  Camera, Car, Shield, UserCheck, Zap, ChevronRight,
 } from 'lucide-react'
 
 const services = [
@@ -11,153 +11,94 @@ const services = [
     icon: Fingerprint,
     title: 'Access Control System',
     short: 'Smart authentication for sensitive areas',
-    desc: 'Restrict and monitor entry to sensitive areas with smart authentication. Scalable from a single door to complex multi-site enterprise deployments with full remote management.',
-    bullets: [
-      'Biometric, RFID, keycard & mobile access',
-      'Real-time logs and remote management',
-      'Central dashboard control',
-      'Scalable for multi-site enterprise deployments',
-    ],
     color: '#4FC3F7',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvmg0hDw0pqXSgV5nSTlloAfhRmT12iTVFyg&s',
   },
   {
     num: '02',
     icon: Flame,
     title: 'Fire Alarm System',
     short: 'Early detection of smoke, heat, and gas',
-    desc: 'Early detection of smoke, heat, and gas with intelligent sensors providing instant alerts to occupants and emergency response teams, fully compliant with national safety standards.',
-    bullets: [
-      'Intelligent smoke, heat & gas sensors',
-      'Instant alerts to occupants & emergency teams',
-      'Compliant with national fire safety standards',
-      'Integrated with BMS for automated evacuation',
-    ],
     color: '#FF6B35',
+    image: 'https://images.pexels.com/photos/31470430/pexels-photo-31470430.jpeg',
   },
   {
     num: '03',
     icon: LayoutDashboard,
     title: 'Building Management System',
     short: 'Centralized control of all building systems',
-    desc: 'Centralized monitoring and control of every building system from a single pane of glass. Optimize energy across HVAC, lighting, and power while automating critical workflows.',
-    bullets: [
-      'Real-time dashboards with alerts & logs',
-      'Optimize energy across HVAC & lighting',
-      'Automated workflows and scheduling',
-      'Seamless integration with fire & security',
-    ],
     color: '#7C3AED',
+    image: 'https://sycoraxtech.com/es/wp-content/uploads/2024/02/bms-768x576-1.jpg',
   },
   {
     num: '04',
     icon: Droplets,
     title: 'Firefighting System',
     short: 'Complete fire suppression solutions',
-    desc: 'Complete fire suppression solutions including sprinklers, hydrants, and hose reels. Specialized gas suppression systems for server rooms and sensitive zones built to NBC norms.',
-    bullets: [
-      'Sprinklers, hydrants & hose reels',
-      'FM200 / CO₂ gas suppression for server rooms',
-      'Designed per NBC & local fire authority norms',
-      'Regular AMC and inspection services',
-    ],
     color: '#0891B2',
+    image: 'https://bristol-fire.com/wp-content/uploads/2024/08/Foam-Suppression-Systems.jpg',
   },
   {
     num: '05',
     icon: BellRing,
     title: 'Intruder Alarm System',
     short: '24/7 perimeter and interior detection',
-    desc: '24/7 perimeter and interior intrusion detection with motion sensors, door contacts, and glass break detectors. Tamper-proof with backup power for continuous protection.',
-    bullets: [
-      'Motion sensors, door & glass break detectors',
-      'Instant alerts via SMS, app & monitoring station',
-      'Tamper-proof design with backup power',
-      'Central monitoring station integration',
-    ],
     color: '#DC2626',
+    image: 'https://londoncityfire.co.uk/wp-content/uploads/2020/08/Intruder-Alarm-Installations.jpg',
   },
   {
     num: '06',
     icon: Camera,
     title: 'CCTV Surveillance',
     short: 'HD cameras for every environment',
-    desc: 'High-definition cameras for indoor, outdoor, and low-light environments with centralized recording and AI-powered analytics for proactive threat detection.',
-    bullets: [
-      'HD cameras for indoor, outdoor & low-light',
-      'Remote live viewing via mobile or web',
-      'AI-powered motion detection & face recognition',
-      'Scalable from small offices to large campuses',
-    ],
     color: '#059669',
+    image: 'https://fudsinternational.com/cdn/shop/articles/CCTV_Camera_Features_blog.jpg?v=1751460982&width=1100',
   },
   {
     num: '07',
     icon: Car,
     title: 'Boom Barrier',
     short: 'Automated vehicle access control',
-    desc: 'Automated vehicle access control for parking lots and gated premises. Fast operation with smooth cycles and integration with ANPR, access cards, and intercom systems.',
-    bullets: [
-      'Fast smooth open/close cycles',
-      'Integrates with ANPR & access cards',
-      'Intercom system compatibility',
-      'Durable for high-traffic commercial sites',
-    ],
     color: '#D97706',
+    image: 'https://nihva.com/wp-content/uploads/2025/06/automatic-boom-barrier-gate-system.jpg',
   },
   {
     num: '08',
     icon: Shield,
     title: 'Bollard System',
     short: 'High-strength vehicle intrusion prevention',
-    desc: 'High-strength fixed or retractable bollards for vehicle intrusion prevention, protecting pedestrian zones, building entrances, and critical infrastructure.',
-    bullets: [
-      'Fixed or retractable variants available',
-      'Protects pedestrian zones & building entrances',
-      'Manual, semi-automatic & fully automated',
-      'Crash-rated for high-security installations',
-    ],
     color: '#7C3AED',
+    image: 'https://smartpower.co.in/wp-content/uploads/2022/09/p333-730.jpg',
   },
   {
     num: '09',
     icon: UserCheck,
     title: 'Flap Barrier',
     short: 'Elegant pedestrian lane management',
-    desc: 'Elegant pedestrian lane management for offices, metro stations, and gyms. Bi-directional flow control with anti-tailgating intelligence and a sleek stainless steel finish.',
-    bullets: [
-      'Single or bi-directional flow control',
-      'Integrates with cards, biometrics & QR codes',
-      'Anti-tailgating intelligence built-in',
-      'Sleek stainless steel finish',
-    ],
     color: '#0284C7',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2021/4/CZ/SM/EL/2711683/flap-barrier-gate-500x500.jpg',
   },
   {
     num: '10',
     icon: Zap,
     title: 'Electrical Systems',
     short: 'End-to-end electrical design & installation',
-    desc: 'End-to-end electrical design, supply, and installation including power distribution, DB setup, earthing, and cable management compliant with IE rules and IS standards.',
-    bullets: [
-      'Power distribution & DB setup',
-      'UPS, DG integration & energy metering',
-      'Earthing & professional cable management',
-      'Compliant with IE rules & IS standards',
-    ],
     color: '#CA8A04',
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&q=80',
   },
 ]
 
 export default function Services() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
-  const [active, setActive] = useState(0)
-
-  const ActiveIcon = services[active].icon
-  const activeColor = services[active].color
 
   return (
-    <section id="services" ref={ref} className="relative py-28 overflow-hidden" style={{ background: 'linear-gradient(180deg,#EEF3FF 0%,#F8FAFF 100%)' }}>
+    <section
+      id="services"
+      ref={ref}
+      className="relative py-28 overflow-hidden"
+      style={{ background: 'linear-gradient(180deg,#EEF3FF 0%,#F8FAFF 100%)' }}
+    >
       {/* Subtle grid */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -194,159 +135,89 @@ export default function Services() {
           </motion.p>
         </div>
 
-        {/* Interactive Panel */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col lg:grid lg:grid-cols-[5fr_7fr] gap-4 lg:gap-8"
-        >
-          {/* Left: Service list */}
-          <div className="space-y-1">
-            {services.map(({ num, icon: Icon, title, short, color }, i) => (
-              <motion.button
-                key={num}
-                onClick={() => setActive(i)}
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.35 + 0.04 * i }}
-                className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl text-left transition-all duration-300 group ${
-                  active === i
-                    ? 'bg-white border border-slate-200 shadow-md'
-                    : 'border border-transparent hover:bg-white/70 hover:border-slate-200'
-                }`}
-              >
-                {/* Icon */}
-                <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300"
+        {/* Card Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {services.map(({ num, icon: Icon, title, short, color, image }, i) => (
+            <motion.a
+              key={num}
+              href="#contact"
+              initial={{ opacity: 0, y: 36 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.2 + 0.06 * i, ease: [0.23, 1, 0.32, 1] }}
+              className="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+            >
+              {/* Image */}
+              <div className="relative h-44 overflow-hidden bg-slate-100 flex-shrink-0">
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                />
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+
+                {/* Service number — top right */}
+                <span
+                  className="absolute top-3 right-3 font-mono text-[11px] font-bold px-2 py-1 rounded-lg"
                   style={{
-                    background: active === i ? `${color}18` : '#F1F5F9',
-                    boxShadow: active === i ? `0 0 14px ${color}30` : 'none',
+                    background: 'rgba(255,255,255,0.15)',
+                    backdropFilter: 'blur(8px)',
+                    color: '#fff',
+                    border: '1px solid rgba(255,255,255,0.2)',
                   }}
                 >
-                  <Icon
-                    size={16}
-                    style={{ color: active === i ? color : '#94A3B8' }}
-                    className="transition-colors duration-300"
-                  />
-                </div>
+                  {num}
+                </span>
 
-                {/* Text */}
-                <div className="flex-1 min-w-0">
-                  <div
-                    className="font-semibold text-[13px] leading-snug transition-colors duration-200"
-                    style={{ color: active === i ? '#0F172A' : '#475569' }}
-                  >
-                    {title}
-                  </div>
-                  <div className="text-[11px] text-slate-400 truncate mt-0.5">{short}</div>
-                </div>
-
-                {/* Number + chevron */}
-                <div className="flex items-center gap-1.5 flex-shrink-0">
-                  <span className="font-mono text-[10px] text-slate-300">{num}</span>
-                  <ChevronRight
-                    size={13}
-                    className="transition-all duration-300"
-                    style={{ color: active === i ? color : '#CBD5E1', transform: active === i ? 'translateX(2px)' : 'none' }}
-                  />
-                </div>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Right: Detail Panel */}
-          <div className="lg:sticky lg:top-24 h-fit">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 16, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -12, scale: 0.98 }}
-                transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-                className="bg-white rounded-2xl border border-slate-200 p-8 shadow-lg overflow-hidden relative"
-              >
-                {/* Background accent */}
+                {/* Icon badge — bottom left, overlapping image */}
                 <div
-                  className="absolute top-0 right-0 w-64 h-64 rounded-full blur-[80px] opacity-10 pointer-events-none"
-                  style={{ background: activeColor }}
-                />
-                <div
-                  className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full blur-[60px] opacity-8 pointer-events-none"
-                  style={{ background: activeColor }}
-                />
-
-                {/* Icon + Number */}
-                <div className="flex items-start justify-between mb-6 relative">
-                  <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
-                    style={{
-                      background: `linear-gradient(135deg, ${activeColor}22, ${activeColor}10)`,
-                      border: `1px solid ${activeColor}30`,
-                      boxShadow: `0 8px 32px ${activeColor}25`,
-                    }}
-                  >
-                    <ActiveIcon size={30} style={{ color: activeColor }} />
-                  </div>
-                  <span className="font-mono text-[40px] font-bold leading-none" style={{ color: `${activeColor}15` }}>
-                    {services[active].num}
-                  </span>
+                  className="absolute bottom-3 left-3 w-9 h-9 rounded-xl flex items-center justify-center shadow-lg"
+                  style={{
+                    background: 'rgba(255,255,255,0.92)',
+                    backdropFilter: 'blur(8px)',
+                    border: `1px solid ${color}40`,
+                  }}
+                >
+                  <Icon size={16} style={{ color }} />
                 </div>
+              </div>
 
-                {/* Title */}
-                <h3 className="text-[24px] font-bold text-slate-900 mb-3 leading-snug relative">
-                  {services[active].title}
+              {/* Body */}
+              <div className="p-4 flex flex-col flex-1">
+                <h3 className="text-[13.5px] font-semibold text-slate-900 leading-snug mb-1.5">
+                  {title}
                 </h3>
-
-                {/* Description */}
-                <p className="text-slate-500 text-[14px] leading-[1.75] mb-6 relative">
-                  {services[active].desc}
+                <p className="text-[12px] text-slate-400 leading-[1.65] flex-1">
+                  {short}
                 </p>
 
-                {/* Divider */}
-                <div className="h-px mb-6 relative" style={{ background: `linear-gradient(90deg, ${activeColor}40, transparent)` }} />
-
-                {/* Bullets */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 relative">
-                  {services[active].bullets.map((b, i) => (
-                    <motion.div
-                      key={b}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.05 * i }}
-                      className="flex items-start gap-2.5"
-                    >
-                      <div
-                        className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ background: `${activeColor}15`, border: `1px solid ${activeColor}30` }}
-                      >
-                        <Check size={10} style={{ color: activeColor }} />
-                      </div>
-                      <span className="text-[13px] text-slate-600 leading-snug">{b}</span>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Bottom CTA */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between relative"
-                >
-                  <span className="text-[12px] text-slate-400 font-mono">SERVICE {services[active].num} / 10</span>
-                  <a
-                    href="#contact"
-                    className="flex items-center gap-1.5 text-[13px] font-semibold transition-all duration-200 hover:gap-2.5"
-                    style={{ color: activeColor }}
+                {/* CTA row */}
+                <div className="mt-4 flex items-center justify-between">
+                  <div
+                    className="h-[2px] w-8 rounded-full transition-all duration-300 group-hover:w-14"
+                    style={{ background: color }}
+                  />
+                  <span
+                    className="flex items-center gap-1 text-[11px] font-semibold transition-all duration-200"
+                    style={{ color }}
                   >
-                    Get a Quote <ChevronRight size={14} />
-                  </a>
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </motion.div>
+                    Get a Quote
+                    <ChevronRight
+                      size={12}
+                      className="transition-transform duration-200 group-hover:translate-x-0.5"
+                    />
+                  </span>
+                </div>
+              </div>
+
+              {/* Bottom accent line */}
+              <div
+                className="h-[3px] w-0 group-hover:w-full transition-all duration-500"
+                style={{ background: `linear-gradient(90deg, ${color}, transparent)` }}
+              />
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   )
