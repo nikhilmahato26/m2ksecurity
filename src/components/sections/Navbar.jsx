@@ -42,7 +42,7 @@ export default function Navbar() {
             <Shield size={15} className="text-[#0F172A]" />
           </div>
           <span className="font-bold text-[17px] tracking-tight text-slate-900">
-            M2K <span className="text-[#4FC3F7]">Security</span>
+            M2K <span className="text-[#4FC3F7]">Security Solutions</span>
           </span>
         </motion.a>
 
