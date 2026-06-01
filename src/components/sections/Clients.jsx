@@ -140,9 +140,10 @@ export default function Clients() {
           <button
             onClick={() => go(-1)}
             disabled={page === 0}
-            className="flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+            className="flex-shrink-0 w-6 h-6 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={14} className="sm:hidden" />
+            <ChevronLeft size={20} className="hidden sm:block" />
           </button>
 
           {/* Cards */}
@@ -156,7 +157,7 @@ export default function Clients() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.38, ease: [0.23, 1, 0.32, 1] }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+                className="grid grid-cols-3 gap-2 sm:gap-5"
               >
                 {visible.map((client) => (
                   <div
@@ -164,31 +165,31 @@ export default function Clients() {
                     className="group bg-white rounded-2xl overflow-hidden shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
                   >
                     {/* Image */}
-                    <div className="relative h-52 overflow-hidden bg-slate-200">
+                    <div className="relative h-24 sm:h-52 overflow-hidden bg-slate-200">
                       <img
                         src={client.image}
                         alt={client.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      {/* Industry pill on image */}
-                      <span className="absolute top-3 left-3 text-[10px] font-mono font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-sm text-white border border-white/20">
+                      {/* Industry pill — hidden on mobile to save space */}
+                      <span className="hidden sm:block absolute top-3 left-3 text-[10px] font-mono font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-sm text-white border border-white/20">
                         {client.industry}
                       </span>
                     </div>
 
                     {/* Body */}
-                    <div className="px-5 py-4 text-center">
-                      <h3 className="text-slate-900 font-bold text-[15px] leading-snug mb-0.5">
+                    <div className="px-2 py-2 sm:px-5 sm:py-4 text-center">
+                      <h3 className="text-slate-900 font-bold text-[10px] sm:text-[15px] leading-snug mb-0.5 line-clamp-2">
                         {client.name}
                       </h3>
-                      <p className="text-slate-400 text-[12px] mb-4">
+                      <p className="hidden sm:block text-slate-400 text-[12px] mb-4">
                         ( {client.location} )
                       </p>
                       <a
                         href="#contact"
-                        className="inline-block w-full bg-slate-800 hover:bg-slate-700 text-white text-[13px] font-semibold py-2.5 rounded-xl transition-colors duration-200"
+                        className="inline-block w-full bg-slate-800 hover:bg-slate-700 text-white text-[9px] sm:text-[13px] font-semibold py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl transition-colors duration-200"
                       >
-                        View Project
+                        View
                       </a>
                     </div>
                   </div>
@@ -201,9 +202,10 @@ export default function Clients() {
           <button
             onClick={() => go(1)}
             disabled={page === totalPages - 1}
-            className="flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+            className="flex-shrink-0 w-6 h-6 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={14} className="sm:hidden" />
+            <ChevronRight size={20} className="hidden sm:block" />
           </button>
         </div>
 
