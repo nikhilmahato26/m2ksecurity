@@ -151,7 +151,7 @@ export default function Services() {
                 <img
                   src={image}
                   alt={title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  className="w-full h-full object-cover  group-hover:scale-105 transition-all duration-500"
                 />
                 {/* Dark gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
