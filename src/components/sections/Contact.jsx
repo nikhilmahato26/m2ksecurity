@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import { Phone, Mail, MapPin, Clock, CheckCircle2 } from 'lucide-react'
 
 // ⚠️  Replace with the actual M2K Security WhatsApp number (country code + number, no spaces)
-const WHATSAPP_NUMBER = '919999999999'
+const WHATSAPP_NUMBER = '919319555887'
 
 const serviceOptions = [
   'Access Control System',
@@ -21,9 +21,9 @@ const serviceOptions = [
 ]
 
 const contactDetails = [
-  { icon: Phone, label: 'Call Us', value: '+91 99999 99999', href: 'tel:+919999999999' },
-  { icon: Mail, label: 'Email Us', value: 'info@m2ksecurity.in', href: 'mailto:info@m2ksecurity.in' },
-  { icon: MapPin, label: 'Registered Address', value: 'Sanchod, Alwar, Rajasthan — 301401', href: '#' },
+  { icon: Phone, label: 'Call Us', value: '+91 93195 55887', href: 'tel:+919319555887' },
+  { icon: Mail, label: 'Email Us', value: 'm2kssolutions@gmail.com', href: 'mailto:m2kssolutions@gmail.com' },
+  { icon: MapPin, label: 'Registered Address', value: 'Teh-Mundawar, Bawal Road, Village Sanchod, Alwar, Rajasthan — 301401', href: '#' },
   { icon: Clock, label: 'Working Hours', value: 'Mon – Sat, 9 AM – 7 PM', href: null },
 ]
 
@@ -261,7 +261,7 @@ export default function Contact() {
                 </motion.button>
 
                 <a
-                  href={`mailto:info@m2ksecurity.in?subject=Security%20Enquiry&body=Name%3A%20${encodeURIComponent(form.name)}%0ACompany%3A%20${encodeURIComponent(form.company)}%0APhone%3A%20${encodeURIComponent(form.phone)}%0AService%3A%20${encodeURIComponent(form.service)}%0AMessage%3A%20${encodeURIComponent(form.message)}`}
+                  href={`mailto:m2kssolutions@gmail.com?subject=Security%20Enquiry&body=Name%3A%20${encodeURIComponent(form.name)}%0ACompany%3A%20${encodeURIComponent(form.company)}%0APhone%3A%20${encodeURIComponent(form.phone)}%0AService%3A%20${encodeURIComponent(form.service)}%0AMessage%3A%20${encodeURIComponent(form.message)}`}
                   className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-slate-200 text-slate-600 font-semibold text-[14px] hover:border-slate-300 hover:bg-slate-50 transition-all duration-200"
                 >
                   <Mail size={16} />
