@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Shield, Menu, X, ChevronDown } from 'lucide-react'
 
+const MotionLink = motion(Link)
+
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#works' },
-  { label: 'Services', href: '#services' },
-  { label: 'Clients', href: '#clients' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/#home' },
+  { label: 'About', href: '/#works' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Clients', href: '/#clients' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 export default function Navbar() {
@@ -33,8 +36,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-[68px] flex items-center justify-between">
         {/* Logo */}
-        <motion.a
-          href="#home"
+        <MotionLink
+          to="/"
           className="flex items-center gap-2.5 group flex-shrink-0"
           whileHover={{ scale: 1.02 }}
         >
@@ -44,34 +47,34 @@ export default function Navbar() {
           <span className="font-bold text-[17px] tracking-tight text-slate-900">
             M2K <span className="text-[#4FC3F7]">Security Solutions</span>
           </span>
-        </motion.a>
+        </MotionLink>
 
         {/* Desktop Nav - pill container */}
         <div className="hidden md:flex items-center gap-0.5 bg-slate-100/60 border border-slate-200 rounded-full px-2 py-1.5 backdrop-blur-sm">
           {navLinks.map(({ label, href, dropdown }) => (
-            <motion.a
+            <MotionLink
               key={label}
-              href={href}
+              to={href}
               className="flex items-center gap-1 px-4 py-1.5 text-[13px] text-slate-500 hover:text-slate-900 rounded-full transition-all duration-300 hover:bg-slate-100 font-medium"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
             >
               {label}
               {dropdown && <ChevronDown size={11} className="opacity-50" />}
-            </motion.a>
+            </MotionLink>
           ))}
         </div>
 
         {/* Right CTA */}
         <div className="flex items-center gap-3">
-          <motion.a
-            href="#contact"
+          <MotionLink
+            to="/#contact"
             whileHover={{ scale: 1.04, boxShadow: '0 0 25px rgba(0,229,255,0.45)' }}
             whileTap={{ scale: 0.97 }}
             className="hidden md:flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-[#4FC3F7] to-[#00E5FF] text-[#0F172A] font-bold text-[13px] shadow-[0_0_20px_rgba(79,195,247,0.25)]"
           >
             Get Started <span className="text-[15px] leading-none">›</span>
-          </motion.a>
+          </MotionLink>
 
           <button
             className="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 text-slate-600"
@@ -92,22 +95,22 @@ export default function Navbar() {
             className="md:hidden bg-[#F8FAFF]/98 backdrop-blur-xl border-t border-slate-200 px-6 py-4 flex flex-col gap-1"
           >
             {navLinks.map(({ label, href }) => (
-              <a
+              <Link
                 key={label}
-                href={href}
+                to={href}
                 onClick={() => setMenuOpen(false)}
                 className="py-3 text-slate-500 hover:text-slate-900 border-b border-slate-100 text-sm font-medium flex items-center justify-between"
               >
                 {label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              to="/#contact"
               onClick={() => setMenuOpen(false)}
               className="mt-3 text-center py-3 rounded-full bg-gradient-to-r from-[#4FC3F7] to-[#00E5FF] text-[#0F172A] font-bold text-sm"
             >
               Get Started ›
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

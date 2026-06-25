@@ -1,9 +1,13 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import {
   Fingerprint, Flame, LayoutDashboard, Droplets, BellRing,
   Camera, Car, Shield, UserCheck, Zap, ChevronRight,
 } from 'lucide-react'
+import { slugify } from '../../lib/utils'
+
+const MotionLink = motion(Link)
 
 const services = [
   {
@@ -138,9 +142,9 @@ export default function Services() {
         {/* Card Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {services.map(({ num, icon: Icon, title, short, color, image }, i) => (
-            <motion.a
+            <MotionLink
               key={num}
-              href="#contact"
+              to={`/products/${slugify(title)}`}
               initial={{ opacity: 0, y: 36 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: 0.2 + 0.06 * i, ease: [0.23, 1, 0.32, 1] }}
@@ -201,7 +205,7 @@ export default function Services() {
                     className="flex items-center gap-1 text-[11px] font-semibold transition-all duration-200"
                     style={{ color }}
                   >
-                    Get a Quote
+                    View Products
                     <ChevronRight
                       size={12}
                       className="transition-transform duration-200 group-hover:translate-x-0.5"
@@ -215,7 +219,7 @@ export default function Services() {
                 className="h-[3px] w-0 group-hover:w-full transition-all duration-500"
                 style={{ background: `linear-gradient(90deg, ${color}, transparent)` }}
               />
-            </motion.a>
+            </MotionLink>
           ))}
         </div>
       </div>
